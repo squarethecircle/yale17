@@ -14,6 +14,7 @@ function extractInt(str) {
 $(document).ready(function() {
 	$('#screen').hide();
 	$('.panel').hide();
+	$(window).resize();
 	$('.dockitem').click( function() {
 		var id = extractInt($(this).attr('id'));
 		if (curpage > 0) {
