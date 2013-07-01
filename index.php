@@ -1,7 +1,13 @@
 <?php require_once('fbheader.php'); ?>
 <html>
 	<head>
-		<script src="inc/jquery.js"></script>
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript">
+			google.load("jquery", "1.7.1", "compressed");
+			google.load("jqueryui", "1.8.17", "compressed");
+		</script>
+		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.min.css" />
+		
 		<script src="page.js"></script>
 		<link rel="stylesheet" type="text/css" href="inc/style.css" />
 		<script src="inc/dockinterface.js"></script>

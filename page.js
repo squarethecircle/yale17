@@ -35,7 +35,6 @@ $(document).ready(function() {
 	// Initialize
 	$('#screen').hide();
 	$('.panel').hide();
-	$(window).resize();
 	
 	// Handle panel animations and loading
 	$('.dockitem').click( function() {
@@ -44,8 +43,12 @@ $(document).ready(function() {
 			$('#p' + curpage).animate({top: $(window).height()}, 1000, function() {
 				$(this).hide(); $(this).children().html('');
 			});
+			var pid = $('#p' + curpage);
+			pid.children().html('');
+			//pid.hide("slide", { direction: "down" }, 1000);
 			if (id == 0 || curpage == id) {
 				$('#screen').fadeOut(800);
+				$(this).css("opacity", "1");
 				$('a.dockitem').animate({color: "#ffffff"}, 1000);
 			}
 		}
@@ -61,6 +64,10 @@ $(document).ready(function() {
 					$('#screen').fadeIn(800);
 				}
 				pid.children().html('<h2>Loading...</h2>');
+				/*pid.show("slide", { direction: "down" }, 1000);
+				$.get("p" + pageid[id] + ".php", function(data){
+					pid.children().html(data);
+				});*/
 				pid.show().animate({top: '0px'}, 1000, function() {
 					$.get("p" + pageid[id] + ".php", function(data){
 						pid.children().html(data);
@@ -87,7 +94,9 @@ $(document).ready(function() {
 	$('.dockcontainer').hover( function() {
 			$(this).css("opacity", "1");
 		}, function() {
-			$(this).css("opacity", "0.2");
+			if (curpage > 0) {
+				$(this).css("opacity", "0.2");
+			}
 		}
 	);
 } );

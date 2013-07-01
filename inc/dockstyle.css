@@ -15,7 +15,6 @@ img {
 	height: 75px;
 	background: url(../gfx/dock/dock-bg.png);
 	padding-left: 30px;
-	opacity: 0.2;
 }
 a.dockitem {
 	display: block; 
