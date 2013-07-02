@@ -19,7 +19,7 @@ $message="Confession:<br>".$text."<br>
 <a href=\"http://www.yale17.com/confess/decision.php?entry=".$hash."&decision=0
 \">Reject</a>";
 
-$moderatorEmails=array("sachith96@gmail.com");
+$moderatorEmails=array("asdf@gmail.com");
 foreach ($moderatorEmails as $address){
 	mail($address,"New Confession",$message,$headers);
 	}
