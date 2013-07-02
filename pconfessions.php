@@ -24,7 +24,7 @@ if (!$con)
   {
   die('Not connected : ' . mysql_error());
   }
-$result=mysqli_query($con,"SELECT * FROM approved;");
+$result=mysqli_query($con,"SELECT * FROM approved ORDER BY time DESC;");
 $numresults=mysqli_num_rows($result);
 for($i=0;$i<$numresults;$i++){
 $confessions=mysqli_fetch_array($result, MYSQLI_NUM);
