@@ -5,7 +5,8 @@ var pageid = { // CaSe-SeNsItIvE!
 	3: "classDB",
 	4: "calendar",
 	5: "resources",
-	6: "wall"
+	6: "wall",
+	7: "confessions"
 };
 
 $('#panels').ready(function() { // Automatically generate code for panels
@@ -35,6 +36,7 @@ $(document).ready(function() {
 	// Initialize
 	$('#screen').hide();
 	$('.panel').hide();
+	$("#loading").loading("loadStop");
 	
 	// Handle panel animations and loading
 	$('.dockitem').click( function() {
@@ -78,6 +80,21 @@ $(document).ready(function() {
 		curpage = newpage;
 	} );
 	$('#screen').click( function() {$('#d0').click()});
+	
+	// Browser check
+	$('#browser').ready( function() {
+		var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+		var isFirefox = typeof InstallTrigger !== 'undefined';
+		var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+		var isChrome = !!window.chrome && !isOpera;
+		var isIE = document.documentMode;
+		if (isIE || isOpera) {
+			$('#browser').show();
+		}
+	} );
+	$('#browser').click( function() {
+		$(this).fadeOut(800);
+	} );
 	
 	// Dock
 	$('#dock').Fisheye( {
